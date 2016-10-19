@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+    <plugin id="cordova-plugin-lexit-btprint" version="1.0.4" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <name>Lexit Bluetooth Print</name>
+    <description>Cordova Bluetooth Print plugin</description>
+    <keywords>cordova,bluetooth,print</keywords>
+    <license>MIT</license>
+    <author>Jens-Christian Skibakk</author>
+    <repo></repo>
+    <issue></issue>
+
+    <js-module name="LexitBtPrint" src="Lexit.BtPrint.js">
+        <clobbers target="lexit.btprint" />
+    </js-module>
+
+    <platform name="android">
+		<source-file src="BtPrint.java" target-dir="src/com/lexitgroup" />
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="LexitBtPrint">
+                <param name="android-package" value="com.lexitgroup.BtPrint" />
+				<param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+        </config-file>
+    </platform>
+</plugin>
