@@ -1,0 +1,34 @@
+{
+  "name": "@lexitgroup/cordova-plugin-lexit-btprint",
+  "version": "1.0.4",
+  "description": "Cordova Bluetooth Print plugin",
+  "cordova": {
+    "id": "cordova-plugin-lexit-btprint",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LexitGroup/cordova-plugin-lexit-btprint.git"
+  },
+  "keywords": [
+    "cordova",
+    "bluetooth",
+    "print",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Lexit Group Norway AS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LexitGroup/cordova-plugin-lexit-btprint/issues"
+  },
+  "homepage": "https://github.com/LexitGroup/cordova-plugin-lexit-btprint#readme"
+}
