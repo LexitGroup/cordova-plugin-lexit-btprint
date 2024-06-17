@@ -28,10 +28,10 @@
 
         <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.BLUETOOTH" />
-        </config-file>
-
-        <config-file parent="/*" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+            <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+            <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
         </config-file>
     </platform>
 </plugin>
