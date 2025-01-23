@@ -4,15 +4,26 @@
 //
 
 var exec = require('cordova/exec');
-//var cordova = require('cordova');
+var cordova = require('cordova');
 
-var App = function() {
+var App = function () {
     this.initialize = function (delay) {
         exec(null, null, 'LexitBtPrint', 'initialize', [delay || 0]);
     };
 
-    this.print = function (mac, data, statusCallback) {
-        exec(statusCallback, statusCallback, 'LexitBtPrint', 'print', [mac, data]);
+    this.print = function (mac, data, statusCallback, permissionError) {
+        var permissions = cordova.plugins.permissions;
+
+        permissions.requestPermission(permissions.BLUETOOTH_CONNECT, success, permissionError);
+
+        function success(status) {
+            if (!status.hasPermission) {
+                permissionError();
+            }
+            else {
+                exec(statusCallback, statusCallback, 'LexitBtPrint', 'print', [mac, data]);
+            }
+        }
     };
 };
 

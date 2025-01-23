@@ -1,6 +1,6 @@
 {
   "name": "@lexitgroup/cordova-plugin-lexit-btprint",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Cordova Bluetooth Print plugin",
   "cordova": {
     "id": "cordova-plugin-lexit-btprint",
