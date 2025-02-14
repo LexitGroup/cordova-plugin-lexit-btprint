@@ -12,21 +12,26 @@ var App = function () {
     };
 
     this.print = function (mac, data, statusCallback) {
-        var permissions = cordova.plugins.permissions;
+        if (device.sdkVersion <= 30) {
+            exec(statusCallback, statusCallback, 'LexitBtPrint', 'print', [mac, data]);
+        }
+        else {
+            var permissions = cordova.plugins.permissions;
 
-        permissions.requestPermission(permissions.BLUETOOTH_CONNECT, success, error);
+            permissions.requestPermission(permissions.BLUETOOTH_CONNECT, success, error);
 
-        function success(status) {
-            if (!status.hasPermission) {
+            function success(status) {
+                if (!status.hasPermission) {
+                    statusCallback('Insufficient premissions');
+                }
+                else {
+                    exec(statusCallback, statusCallback, 'LexitBtPrint', 'print', [mac, data]);
+                }
+            }
+
+            function error() {
                 statusCallback('Insufficient premissions');
             }
-            else {
-                exec(statusCallback, statusCallback, 'LexitBtPrint', 'print', [mac, data]);
-            }
-        }
-
-        function error() {
-            statusCallback('Insufficient premissions');
         }
     };
 };
